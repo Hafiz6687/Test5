@@ -1,0 +1,3777 @@
+<!-- =====================================================
+     KALKULATOR AKTA KERJA 1955
+     INDEX.HTML
+     PROFESSIONAL CLEAN VERSION
+     PART 1/5
+===================================================== -->
+
+<!DOCTYPE html>
+
+<html lang="ms">
+
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+Kalkulator Akta Kerja 1955
+</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="wrapper">
+
+
+
+<!-- =====================================================
+     PAGE HEADER
+===================================================== -->
+
+<header class="page-title">
+
+
+<h1>
+Kalkulator Akta Kerja 1955
+</h1>
+
+
+<p>
+Koleksi kalkulator berdasarkan Akta Kerja 1955<br>
+Hak Cipta: Mohamad Hafiz bin Abu Bakar<br>
+PTK Kluang
+</p>
+
+
+</header>
+
+
+
+
+
+<!-- =====================================================
+     CALCULATOR GRID
+===================================================== -->
+
+<div class="calculator-grid">
+
+
+
+
+
+<!-- =====================================================
+     KALKULATOR KADAR UPAH BIASA (ORP)
+===================================================== -->
+
+<section class="calculator-card">
+
+
+<h2>
+Kalkulator<br>
+Kadar Upah Biasa (ORP)
+</h2>
+
+
+
+<!-- GAJI POKOK -->
+
+<div class="form-group">
+
+
+<label for="orpBasicSalary">
+
+Gaji Pokok (RM)
+
+</label>
+
+
+<input
+type="text"
+id="orpBasicSalary"
+class="salary-input"
+placeholder="Contoh: 2500 atau 2500+300">
+
+
+</div>
+
+
+
+
+
+<!-- ELAUN -->
+
+<div class="form-group">
+
+
+<label for="orpAllowance">
+
+Elaun (RM)
+
+</label>
+
+
+<input
+type="text"
+id="orpAllowance"
+class="salary-input"
+placeholder="Contoh: 300 atau 100">
+
+
+</div>
+
+
+
+
+
+<!-- JUMLAH UPAH -->
+
+<div class="form-group">
+
+
+<label for="orpTotalSalary">
+
+Jumlah Upah (RM)
+
+</label>
+
+
+<input
+type="text"
+id="orpTotalSalary"
+class="salary-total"
+value="RM 0.00"
+readonly>
+
+
+</div>
+
+
+
+
+
+<!-- BUTTON -->
+
+<div class="button-group">
+
+
+<button
+type="button"
+class="btn btn-primary"
+onclick="calculateORP()">
+
+Kira
+
+</button>
+
+
+
+<button
+type="button"
+class="btn btn-reset"
+onclick="resetORP()">
+
+Reset
+
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- RESULT -->
+
+<div class="result-box">
+
+
+<h3>
+Keputusan
+</h3>
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Jumlah Upah
+
+</span>
+
+
+<strong
+id="orpResultTotal"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Kadar Upah Biasa (ORP)
+
+</span>
+
+
+<strong
+id="orpResult"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- =====================================================
+     KALKULATOR CUTI TAHUNAN
+===================================================== -->
+
+
+<section class="calculator-card">
+
+
+<h2>
+Kalkulator<br>
+Cuti Tahunan
+</h2>
+
+
+
+
+
+<div class="form-group">
+
+
+<label for="annualLeaveDays">
+
+Bilangan Hari Baki Cuti Tahunan
+
+</label>
+
+
+<input
+type="number"
+id="annualLeaveDays"
+class="number-input"
+placeholder="Contoh: 10">
+
+
+</div>
+
+
+
+
+
+<div class="button-group">
+
+
+<button
+type="button"
+class="btn btn-primary"
+onclick="calculateCutiTahunan()">
+
+Kira
+
+</button>
+
+
+
+<button
+type="button"
+class="btn btn-reset"
+onclick="resetCutiTahunan()">
+
+Reset
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-box">
+
+
+<h3>
+Keputusan
+</h3>
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Kadar Upah Biasa (ORP)
+
+</span>
+
+
+<strong
+id="annualLeaveORP"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Bayaran Cuti Tahunan
+
+</span>
+
+
+<strong
+id="annualLeaveAmount"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     KALKULATOR CUTI SAKIT
+===================================================== -->
+
+
+<section class="calculator-card">
+
+
+<h2>
+Kalkulator<br>
+Cuti Sakit
+</h2>
+
+
+
+
+
+<div class="form-group">
+
+
+<label for="sickLeaveDays">
+
+Bilangan Hari Cuti Sakit
+
+</label>
+
+
+<input
+type="number"
+id="sickLeaveDays"
+class="number-input"
+placeholder="Contoh: 14">
+
+
+</div>
+
+
+
+
+
+<div class="button-group">
+
+
+<button
+type="button"
+class="btn btn-primary"
+onclick="calculateCutiSakit()">
+
+Kira
+
+</button>
+
+
+
+<button
+type="button"
+class="btn btn-reset"
+onclick="resetCutiSakit()">
+
+Reset
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-box">
+
+
+<h3>
+Keputusan
+</h3>
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Kadar Upah Biasa (ORP)
+
+</span>
+
+
+<strong
+id="sickLeaveORP"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Bayaran Cuti Sakit
+
+</span>
+
+
+<strong
+id="sickLeaveAmount"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</section>
+<!-- =====================================================
+     KALKULATOR OT HARI BIASA
+===================================================== -->
+
+
+<section class="calculator-card calculator-card-large">
+
+
+<h2>
+Kalkulator<br>
+OT Hari Biasa
+</h2>
+
+
+
+
+
+<!-- GAJI POKOK -->
+
+<div class="form-group">
+
+
+<label for="otBasicSalary">
+
+Gaji Pokok (RM)
+
+</label>
+
+
+<input
+type="text"
+id="otBasicSalary"
+class="salary-input"
+placeholder="Contoh: 2500 atau 2500+300">
+
+
+</div>
+
+
+
+
+
+
+<!-- ELAUN -->
+
+<div class="form-group">
+
+
+<label for="otAllowance">
+
+Elaun (RM)
+
+</label>
+
+
+<input
+type="text"
+id="otAllowance"
+class="salary-input"
+placeholder="Contoh: 300 atau 100">
+
+
+</div>
+
+
+
+
+
+
+<!-- JUMLAH UPAH -->
+
+<div class="form-group">
+
+
+<label for="otTotalSalary">
+
+Jumlah Upah (RM)
+
+</label>
+
+
+<input
+type="text"
+id="otTotalSalary"
+class="salary-total"
+value="RM 0.00"
+readonly>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- JUMLAH JAM OT -->
+
+<div class="form-group">
+
+
+<label for="otHours">
+
+Jumlah Jam OT
+
+</label>
+
+
+<input
+type="number"
+id="otHours"
+class="number-input"
+placeholder="Masukkan jumlah jam OT"
+min="0"
+step="0.5">
+
+
+</div>
+
+
+
+
+
+
+<!-- JAM KERJA NORMAL -->
+
+<div class="form-group">
+
+
+<label for="normalWorkingHours">
+
+Jam Kerja Normal Sehari
+
+</label>
+
+
+<select
+id="normalWorkingHours"
+class="select-input">
+
+
+<option value="">
+- Sila Pilih -
+</option>
+
+
+<option value="8">
+8 Jam
+</option>
+
+
+<option value="7.5">
+7.5 Jam
+</option>
+
+
+<option value="7">
+7 Jam
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- BUTTON -->
+
+<div class="button-group">
+
+
+<button
+type="button"
+class="btn btn-primary"
+onclick="calculateOTBiasa()">
+
+Kira
+
+</button>
+
+
+
+
+<button
+type="button"
+class="btn btn-reset"
+onclick="resetOTBiasa()">
+
+Reset
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- RESULT -->
+
+<div class="result-box">
+
+
+<h3>
+Keputusan
+</h3>
+
+
+
+
+<div class="result-row">
+
+<span class="result-label">
+Jumlah Upah
+</span>
+
+
+<strong
+id="otResultTotal"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+</div>
+
+
+
+
+
+<div class="result-row">
+
+<span class="result-label">
+Kadar Upah Biasa
+</span>
+
+
+<strong
+id="otORP"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+</div>
+
+
+
+
+
+<div class="result-row">
+
+<span class="result-label">
+Kadar Sejam
+</span>
+
+
+<strong
+id="otHourly"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+</div>
+
+
+
+
+
+<div class="result-row">
+
+<span class="result-label">
+Bayaran OT Hari Biasa
+</span>
+
+
+<strong
+id="otAmount"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+</div>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     KALKULATOR OT HARI REHAT
+===================================================== -->
+
+
+<section class="calculator-card calculator-card-large">
+
+
+<h2>
+Kalkulator<br>
+OT Hari Rehat
+</h2>
+
+
+
+
+
+
+<!-- GAJI POKOK -->
+
+
+<div class="form-group">
+
+
+<label for="otRHBasicSalary">
+
+Gaji Pokok (RM)
+
+</label>
+
+
+<input
+type="text"
+id="otRHBasicSalary"
+class="salary-input"
+placeholder="Contoh: 2500 atau 2500+300">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ELAUN -->
+
+
+<div class="form-group">
+
+
+<label for="otRHAllowance">
+
+Elaun (RM)
+
+</label>
+
+
+<input
+type="text"
+id="otRHAllowance"
+class="salary-input"
+placeholder="Contoh: 300 atau 100">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- JUMLAH UPAH -->
+
+
+<div class="form-group">
+
+
+<label for="otRHTotalSalary">
+
+Jumlah Upah (RM)
+
+</label>
+
+
+<input
+type="text"
+id="otRHTotalSalary"
+class="salary-total"
+value="RM 0.00"
+readonly>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- JAM OT -->
+
+
+<div class="form-group">
+
+
+<label for="otRHHours">
+
+Jumlah Jam OT
+
+</label>
+
+
+<input
+type="number"
+id="otRHHours"
+class="number-input"
+placeholder="Masukkan jumlah jam OT"
+min="0"
+step="0.5">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- JAM NORMAL -->
+
+
+<div class="form-group">
+
+
+<label for="otRHNormalWorkingHours">
+
+Jam Kerja Normal Sehari
+
+</label>
+
+
+<select
+id="otRHNormalWorkingHours"
+class="select-input">
+
+
+<option value="">
+- Sila Pilih -
+</option>
+
+
+<option value="8">
+8 Jam
+</option>
+
+
+<option value="7.5">
+7.5 Jam
+</option>
+
+
+<option value="7">
+7 Jam
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- BUTTON -->
+
+
+<div class="button-group">
+
+
+<button
+type="button"
+class="btn btn-primary"
+onclick="calculateOTRH()">
+
+Kira
+
+</button>
+
+
+
+<button
+type="button"
+class="btn btn-reset"
+onclick="resetOTRH()">
+
+Reset
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- RESULT -->
+
+
+<div class="result-box">
+
+
+<h3>
+Keputusan
+</h3>
+
+
+
+
+<div class="result-row">
+
+<span class="result-label">
+Jumlah Upah
+</span>
+
+
+<strong
+id="otRHResultTotal"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+</div>
+
+
+
+
+
+<div class="result-row">
+
+<span class="result-label">
+Kadar Upah Biasa
+</span>
+
+
+<strong
+id="otRHORP"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+</div>
+
+
+
+
+
+<div class="result-row">
+
+<span class="result-label">
+Kadar Sejam OT Hari Rehat
+</span>
+
+
+<strong
+id="otRHHourly"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+</div>
+
+
+
+
+
+<div class="result-row">
+
+<span class="result-label">
+Bayaran OT Hari Rehat
+</span>
+
+
+<strong
+id="otRHAmount"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+</div>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     KALKULATOR SEKSYEN 18A
+===================================================== -->
+
+
+<section class="calculator-card calculator-card-large">
+
+
+<h2>
+Kalkulator<br>
+Seksyen 18A
+</h2>
+
+
+
+
+
+
+
+
+<!-- GAJI POKOK -->
+
+
+<div class="form-group">
+
+
+<label for="section18ABasicSalary">
+
+Gaji Pokok (RM)
+
+</label>
+
+
+<input
+type="text"
+id="section18ABasicSalary"
+class="salary-input"
+placeholder="Contoh: 2500 atau 2500+300">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ELAUN -->
+
+
+<div class="form-group">
+
+
+<label for="section18AAllowance">
+
+Elaun (RM)
+
+</label>
+
+
+<input
+type="text"
+id="section18AAllowance"
+class="salary-input"
+placeholder="Contoh: 300 atau 100">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- JUMLAH UPAH -->
+
+
+<div class="form-group">
+
+
+<label for="section18ATotalSalary">
+
+Jumlah Upah (RM)
+
+</label>
+
+
+<input
+type="text"
+id="section18ATotalSalary"
+class="salary-total"
+value="RM 0.00"
+readonly>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- TARIKH MULA -->
+
+
+<div class="form-group">
+
+
+<label for="section18AStartDate">
+
+Tarikh Mula Kerja
+
+</label>
+
+
+<input
+type="date"
+id="section18AStartDate"
+class="date-input">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- TARIKH AKHIR -->
+
+
+<div class="form-group">
+
+
+<label for="section18AEndDate">
+
+Tarikh Tempoh Upah
+
+</label>
+
+
+<input
+type="date"
+id="section18AEndDate"
+class="date-input">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- BUTTON -->
+
+
+<div class="button-group">
+
+
+<button
+type="button"
+class="btn btn-primary"
+onclick="calculate18A()">
+
+Kira
+
+</button>
+
+
+
+<button
+type="button"
+class="btn btn-reset"
+onclick="resetSeksyen18A()">
+
+Reset
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- RESULT -->
+
+
+<div class="result-box">
+
+
+<h3>
+Keputusan
+</h3>
+
+
+
+<div class="result-row">
+
+<span class="result-label">
+Jumlah Upah
+</span>
+
+
+<strong
+id="resultTotalSalary"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+<hr>
+
+
+
+
+
+<div class="section18a-breakdown">
+
+
+
+<div class="section18a-header">
+
+
+<span>
+</span>
+
+
+<span id="month1Title">
+-
+</span>
+
+
+<span id="month2Title">
+-
+</span>
+
+
+</div>
+
+
+
+
+
+
+<div class="section18a-row">
+
+
+<span>
+Hari Bekerja
+</span>
+
+
+<span id="month1Days">
+-
+</span>
+
+
+<span id="month2Days">
+-
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="section18a-row">
+
+
+<span>
+Kadar Sehari
+</span>
+
+
+<span id="month1Daily">
+RM 0.00
+</span>
+
+
+<span id="month2Daily">
+RM 0.00
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="section18a-row">
+
+
+<span>
+Bayaran
+</span>
+
+
+<span id="month1Amount">
+RM 0.00
+</span>
+
+
+<span id="month2Amount">
+RM 0.00
+</span>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<hr>
+
+
+
+
+
+
+
+<div class="result-row">
+
+<span class="result-label">
+
+Jumlah Bayaran Upah
+
+</span>
+
+
+<strong
+id="amount18A"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</section>
+<!-- =====================================================
+     KALKULATOR GAJI GANTI NOTIS
+     JENIS TEMPOH (BULAN)
+===================================================== -->
+
+
+<section class="calculator-card calculator-card-large">
+
+
+<h2>
+Kalkulator<br>
+Gaji Ganti Notis<br>
+Jenis Tempoh (Bulan)
+</h2>
+
+
+
+
+
+
+<div class="form-group">
+
+
+<label for="ggnMonthNotice">
+
+Bilangan Bulan
+
+</label>
+
+
+<input
+type="number"
+id="ggnMonthNotice"
+class="number-input"
+placeholder="Contoh: 2"
+min="1">
+
+
+</div>
+
+
+
+
+
+
+
+<div class="button-group">
+
+
+<button
+type="button"
+class="btn btn-primary"
+onclick="calculateGGNMonth()">
+
+Kira
+
+</button>
+
+
+
+
+<button
+type="button"
+class="btn btn-reset"
+onclick="resetGGNMonth()">
+
+Reset
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="result-box">
+
+
+<h3>
+Keputusan
+</h3>
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Bilangan Bulan Notis
+
+</span>
+
+
+<strong
+id="ggnResultMonth"
+class="result-value">
+
+0 Bulan
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Bayaran Gaji Ganti Notis
+
+</span>
+
+
+<strong
+id="ggnAmount"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     KALKULATOR GAJI GANTI NOTIS
+     JENIS TEMPOH (MINGGU)
+===================================================== -->
+
+
+<section class="calculator-card calculator-card-large">
+
+
+<h2>
+Kalkulator<br>
+Gaji Ganti Notis<br>
+Jenis Tempoh (Minggu)
+</h2>
+
+
+
+
+
+
+
+
+<!-- GAJI POKOK -->
+
+
+<div class="form-group">
+
+
+<label for="ggnWeekBasicSalary">
+
+Gaji Pokok (RM)
+
+</label>
+
+
+<input
+type="text"
+id="ggnWeekBasicSalary"
+class="salary-input"
+placeholder="Contoh: 1700 atau 1700+300">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ELAUN -->
+
+
+<div class="form-group">
+
+
+<label for="ggnWeekAllowance">
+
+Elaun (RM)
+
+</label>
+
+
+<input
+type="text"
+id="ggnWeekAllowance"
+class="salary-input"
+placeholder="Contoh: 300">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- JUMLAH UPAH -->
+
+
+<div class="form-group">
+
+
+<label for="ggnWeekTotalSalary">
+
+Jumlah Upah (RM)
+
+</label>
+
+
+<input
+type="text"
+id="ggnWeekTotalSalary"
+class="salary-total"
+value="RM 0.00"
+readonly>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- BILANGAN MINGGU -->
+
+
+<div class="form-group">
+
+
+<label for="ggnWeekNotice">
+
+Bilangan Minggu
+
+</label>
+
+
+<input
+type="number"
+id="ggnWeekNotice"
+class="number-input"
+placeholder="Contoh: 4"
+min="1">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- TARIKH MULA -->
+
+
+<div class="form-group">
+
+
+<label for="ggnWeekStartDate">
+
+Tarikh Mula Notis
+
+</label>
+
+
+<input
+type="date"
+id="ggnWeekStartDate"
+class="date-input">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- TARIKH AKHIR -->
+
+
+<div class="form-group">
+
+
+<label for="ggnWeekEndDate">
+
+Tarikh Akhir Notis
+
+</label>
+
+
+<input
+type="date"
+id="ggnWeekEndDate"
+class="date-input">
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="button-group">
+
+
+<button
+type="button"
+class="btn btn-primary"
+onclick="calculateGGNWeek()">
+
+Kira
+
+</button>
+
+
+
+<button
+type="button"
+class="btn btn-reset"
+onclick="resetGGNWeek()">
+
+Reset
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="result-box">
+
+
+<h3>
+Keputusan
+</h3>
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Bilangan Hari Notis
+
+</span>
+
+
+<strong
+id="ggnWeekDays"
+class="result-value">
+
+0 Hari
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Tarikh Akhir Notis
+
+</span>
+
+
+<strong
+id="ggnWeekResultEndDate"
+class="result-value">
+
+-
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Bayaran Gaji Ganti Notis
+
+</span>
+
+
+<strong
+id="ggnWeekAmount"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     KALKULATOR GAJI GANTI NOTIS
+     JENIS TEMPOH (HARI)
+===================================================== -->
+
+
+<section class="calculator-card calculator-card-large ggn-day-card">
+
+
+
+<h2>
+Kalkulator Gaji Ganti Notis
+</h2>
+
+
+<h3 class="notice-type-title">
+
+Jenis Tempoh (Hari)
+
+</h3>
+
+
+
+
+
+
+
+<!-- GAJI POKOK -->
+
+
+<div class="form-group">
+
+
+<label for="ggnDaySalary">
+
+Gaji Pokok (RM)
+
+</label>
+
+
+<input
+type="text"
+id="ggnDaySalary"
+class="salary-input"
+placeholder="Contoh: 2500"
+oninput="updateGGNDayTotalSalary()">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ELAUN -->
+
+
+<div class="form-group">
+
+
+<label for="ggnDayAllowance">
+
+Elaun (RM)
+
+</label>
+
+
+<input
+type="text"
+id="ggnDayAllowance"
+class="salary-input"
+placeholder="Contoh: 300"
+oninput="updateGGNDayTotalSalary()">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- JUMLAH UPAH -->
+
+
+<div class="form-group">
+
+
+<label for="ggnDayTotalSalary">
+
+Jumlah Upah (RM)
+
+</label>
+
+
+<input
+type="text"
+id="ggnDayTotalSalary"
+class="salary-total"
+value="RM 0.00"
+readonly>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- BILANGAN HARI -->
+
+
+<div class="form-group">
+
+
+<label for="ggnDayNoticeDays">
+
+Bilangan Hari
+
+</label>
+
+
+<input
+type="number"
+id="ggnDayNoticeDays"
+class="number-input"
+min="1"
+value="1"
+oninput="autoGGNDayEndDate()">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- TARIKH MULA -->
+
+
+<div class="form-group">
+
+
+<label for="ggnDayStartDate">
+
+Tarikh Mula Notis
+
+</label>
+
+
+<input
+type="date"
+id="ggnDayStartDate"
+class="date-input"
+oninput="autoGGNDayEndDate()">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- TARIKH AKHIR -->
+
+
+<div class="form-group">
+
+
+<label for="ggnDayEndDate">
+
+Tarikh Akhir Notis
+
+</label>
+
+
+<input
+type="date"
+id="ggnDayEndDate"
+class="date-input">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- BUTTON -->
+
+
+<div class="button-group">
+
+
+<button
+type="button"
+class="btn btn-primary"
+onclick="calculateGGNDay()">
+
+Kira
+
+</button>
+
+
+
+
+<button
+type="button"
+class="btn btn-reset"
+onclick="resetGGNDay()">
+
+Reset
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<hr class="result-divider">
+
+
+
+
+
+
+
+<!-- RESULT -->
+
+
+<div class="result-section">
+
+
+<h3 class="result-title">
+
+Keputusan
+
+</h3>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Bilangan Hari Notis
+
+</span>
+
+
+<strong
+id="ggnDayResultDays"
+class="result-value">
+
+0 Hari
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Tarikh Akhir Notis
+
+</span>
+
+
+<strong
+id="ggnDayResultEndDate"
+class="result-value">
+
+-
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Bayaran Gaji Ganti Notis
+
+</span>
+
+
+<strong
+id="ggnDayAmount"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</section>
+<!-- =====================================================
+     KALKULATOR KERJA HARI REHAT
+     1/2 HARI @ KURANG
+===================================================== -->
+
+
+<section class="calculator-card">
+
+
+<h2>
+Kalkulator Kerja Hari Rehat<br>
+(½ Hari @ Kurang)
+</h2>
+
+
+
+
+
+
+
+
+<!-- GAJI POKOK -->
+
+<div class="form-group">
+
+
+<label for="rhBasicSalary">
+
+Gaji Pokok (RM)
+
+</label>
+
+
+<input
+type="text"
+id="rhBasicSalary"
+class="salary-input"
+placeholder="Contoh: 2500 atau 2500+300">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ELAUN -->
+
+<div class="form-group">
+
+
+<label for="rhAllowance">
+
+Elaun (RM)
+
+</label>
+
+
+<input
+type="text"
+id="rhAllowance"
+class="salary-input"
+placeholder="Contoh: 300 atau 100">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- JUMLAH UPAH -->
+
+<div class="form-group">
+
+
+<label for="rhTotalSalary">
+
+Jumlah Upah (RM)
+
+</label>
+
+
+<input
+type="text"
+id="rhTotalSalary"
+class="salary-total"
+value="RM 0.00"
+readonly>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- BILANGAN HARI -->
+
+<div class="form-group">
+
+
+<label for="rhDays">
+
+Bilangan Hari
+
+</label>
+
+
+<input
+type="number"
+id="rhDays"
+class="number-input"
+placeholder="Contoh: 1"
+min="0"
+step="0.5">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- BUTTON -->
+
+<div class="button-group">
+
+
+<button
+type="button"
+class="btn btn-primary"
+onclick="calculateHariRehat()">
+
+Kira
+
+</button>
+
+
+
+
+<button
+type="button"
+class="btn btn-reset"
+onclick="resetHariRehat()">
+
+Reset
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- RESULT -->
+
+
+<div class="result-box">
+
+
+<h3>
+Keputusan
+</h3>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Jumlah Upah
+
+</span>
+
+
+<strong
+id="rhResultTotal"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Kadar Upah Biasa
+
+</span>
+
+
+<strong
+id="rhORP"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Kadar Sehari
+
+</span>
+
+
+<strong
+id="rhDaily"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Bayaran Kerja Hari Rehat
+
+</span>
+
+
+<strong
+id="rhAmount"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     KALKULATOR KERJA HARI REHAT
+     LEBIH 1/2 HARI
+===================================================== -->
+
+
+<section class="calculator-card">
+
+
+<h2>
+Kalkulator Kerja Hari Rehat<br>
+(Lebih ½ Hari)
+</h2>
+
+
+
+
+
+
+
+
+<!-- GAJI POKOK -->
+
+
+<div class="form-group">
+
+
+<label for="rhMoreBasicSalary">
+
+Gaji Pokok (RM)
+
+</label>
+
+
+<input
+type="text"
+id="rhMoreBasicSalary"
+class="salary-input"
+placeholder="Contoh: 2500 atau 2500+300">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ELAUN -->
+
+
+<div class="form-group">
+
+
+<label for="rhMoreAllowance">
+
+Elaun (RM)
+
+</label>
+
+
+<input
+type="text"
+id="rhMoreAllowance"
+class="salary-input"
+placeholder="Contoh: 300 atau 100">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- JUMLAH UPAH -->
+
+
+<div class="form-group">
+
+
+<label for="rhMoreTotalSalary">
+
+Jumlah Upah (RM)
+
+</label>
+
+
+<input
+type="text"
+id="rhMoreTotalSalary"
+class="salary-total"
+value="RM 0.00"
+readonly>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- BILANGAN HARI -->
+
+
+<div class="form-group">
+
+
+<label for="rhMoreDays">
+
+Bilangan Hari
+
+</label>
+
+
+<input
+type="number"
+id="rhMoreDays"
+class="number-input"
+placeholder="Contoh: 1"
+min="0"
+step="1">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- BUTTON -->
+
+
+<div class="button-group">
+
+
+<button
+type="button"
+class="btn btn-primary"
+onclick="calculateHariRehatLebih()">
+
+Kira
+
+</button>
+
+
+
+
+<button
+type="button"
+class="btn btn-reset"
+onclick="resetHariRehatLebih()">
+
+Reset
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- RESULT -->
+
+
+<div class="result-box">
+
+
+<h3>
+Keputusan
+</h3>
+
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Jumlah Upah
+
+</span>
+
+
+<strong
+id="rhMoreResultTotal"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Kadar Upah Biasa
+
+</span>
+
+
+<strong
+id="rhMoreORP"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Kadar Sehari
+
+</span>
+
+
+<strong
+id="rhMoreDaily"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Bayaran Kerja Hari Rehat
+
+</span>
+
+
+<strong
+id="rhMoreAmount"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     KALKULATOR KERJA PADA HARI KELEPASAN
+===================================================== -->
+
+
+<section class="calculator-card">
+
+
+<h2>
+Kalkulator<br>
+Kerja Pada Hari Kelepasan
+</h2>
+
+
+
+
+
+
+
+
+<!-- GAJI POKOK -->
+
+
+<div class="form-group">
+
+
+<label for="phBasicSalary">
+
+Gaji Pokok (RM)
+
+</label>
+
+
+<input
+type="text"
+id="phBasicSalary"
+class="salary-input"
+placeholder="Contoh: 2500 atau 2500+300">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ELAUN -->
+
+
+<div class="form-group">
+
+
+<label for="phAllowance">
+
+Elaun (RM)
+
+</label>
+
+
+<input
+type="text"
+id="phAllowance"
+class="salary-input"
+placeholder="Contoh: 300 atau 100">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- JUMLAH UPAH -->
+
+
+<div class="form-group">
+
+
+<label for="phTotalSalary">
+
+Jumlah Upah (RM)
+
+</label>
+
+
+<input
+type="text"
+id="phTotalSalary"
+class="salary-total"
+value="RM 0.00"
+readonly>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- BILANGAN HARI -->
+
+
+<div class="form-group">
+
+
+<label for="phDays">
+
+Bilangan Hari
+
+</label>
+
+
+<input
+type="number"
+id="phDays"
+class="number-input"
+placeholder="Contoh: 1"
+min="1">
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- BUTTON -->
+
+
+<div class="button-group">
+
+
+<button
+type="button"
+class="btn btn-primary"
+onclick="calculatePH()">
+
+Kira
+
+</button>
+
+
+
+
+<button
+type="button"
+class="btn btn-reset"
+onclick="resetPH()">
+
+Reset
+
+</button>
+
+
+</div>
+<!-- =====================================================
+     RESULT
+     KALKULATOR KERJA PADA HARI KELEPASAN
+===================================================== -->
+
+
+<div class="result-box">
+
+
+<h3>
+Keputusan
+</h3>
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Jumlah Upah
+
+</span>
+
+
+<strong
+id="phResultTotal"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Kadar Upah Biasa
+
+</span>
+
+
+<strong
+id="phORP"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Kadar Sehari
+
+</span>
+
+
+<strong
+id="phDaily"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Bayaran Kerja Hari Kelepasan
+
+</span>
+
+
+<strong
+id="phAmount"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     KALKULATOR OT HARI KELEPASAN
+===================================================== -->
+
+
+<section class="calculator-card calculator-card-large">
+
+
+<h2>
+Kalkulator<br>
+OT Hari Kelepasan
+</h2>
+
+
+
+
+
+
+
+
+<!-- GAJI POKOK -->
+
+
+<div class="form-group">
+
+
+<label for="otPHBasicSalary">
+
+Gaji Pokok (RM)
+
+</label>
+
+
+<input
+type="text"
+id="otPHBasicSalary"
+class="salary-input"
+placeholder="Contoh: 2500 atau 2500+300">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ELAUN -->
+
+
+<div class="form-group">
+
+
+<label for="otPHAllowance">
+
+Elaun (RM)
+
+</label>
+
+
+<input
+type="text"
+id="otPHAllowance"
+class="salary-input"
+placeholder="Contoh: 300 atau 100">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- JUMLAH UPAH -->
+
+
+<div class="form-group">
+
+
+<label for="otPHTotalSalary">
+
+Jumlah Upah (RM)
+
+</label>
+
+
+<input
+type="text"
+id="otPHTotalSalary"
+class="salary-total"
+value="RM 0.00"
+readonly>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- JAM OT -->
+
+
+<div class="form-group">
+
+
+<label for="otPHHours">
+
+Jumlah Jam OT
+
+</label>
+
+
+<input
+type="number"
+id="otPHHours"
+class="number-input"
+placeholder="Masukkan jumlah jam OT"
+min="0"
+step="0.5">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- JAM NORMAL -->
+
+
+<div class="form-group">
+
+
+<label for="otPHWorkingHours">
+
+Jam Kerja Normal Sehari
+
+</label>
+
+
+<select
+id="otPHWorkingHours"
+class="select-input">
+
+
+<option value="">
+- Sila Pilih -
+</option>
+
+
+<option value="8">
+8 Jam
+</option>
+
+
+<option value="7.5">
+7.5 Jam
+</option>
+
+
+<option value="7">
+7 Jam
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- BUTTON -->
+
+
+<div class="button-group">
+
+
+<button
+type="button"
+class="btn btn-primary"
+onclick="calculateOTPH()">
+
+Kira
+
+</button>
+
+
+
+
+<button
+type="button"
+class="btn btn-reset"
+onclick="resetOTPH()">
+
+Reset
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- RESULT -->
+
+
+<div class="result-box">
+
+
+<h3>
+Keputusan
+</h3>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Jumlah Upah
+
+</span>
+
+
+<strong
+id="otPHResultTotal"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Kadar Upah Biasa
+
+</span>
+
+
+<strong
+id="otPHORP"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Kadar Sejam OT Hari Kelepasan
+
+</span>
+
+
+<strong
+id="otPHHourly"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="result-row">
+
+
+<span class="result-label">
+
+Bayaran OT Hari Kelepasan
+
+</span>
+
+
+<strong
+id="otPHAmount"
+class="result-value">
+
+RM 0.00
+
+</strong>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     PERINGATAN PENTING
+===================================================== -->
+
+
+<section class="warning-box">
+
+
+<h3>
+PERINGATAN PENTING
+</h3>
+
+
+
+
+
+<ol>
+
+
+<li>
+
+Kalkulator ini adalah alat bantuan pengiraan berdasarkan
+formula umum di bawah Akta Kerja 1955 (Akta 265).
+
+</li>
+
+
+
+
+<li>
+
+Keputusan pengiraan adalah anggaran dan mungkin berbeza
+bergantung kepada terma kontrak pekerjaan, polisi syarikat
+dan keadaan sebenar pekerja.
+
+</li>
+
+
+
+
+<li>
+
+Sila pastikan maklumat yang dimasukkan seperti gaji,
+elaun, tarikh dan tempoh adalah tepat sebelum membuat
+pengiraan.
+
+</li>
+
+
+
+
+<li>
+
+Rujuk Jabatan Tenaga Kerja (JTK) atau pihak berkaitan
+sekiranya memerlukan pengesahan rasmi.
+
+</li>
+
+
+
+</ol>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =====================================================
+     END CALCULATOR GRID
+===================================================== -->
+
+
+</div>
+
+
+
+<!-- =====================================================
+     END WRAPPER
+===================================================== -->
+
+
+</div>
+
+
+
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+
+</html>
